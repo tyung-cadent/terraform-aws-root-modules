@@ -1,5 +1,5 @@
 module "dhcp_option_set" {
-  source                           = "../terraform-modules/dhcp_option_set/"
+  source                           = "git::https://github.com/tyung-cadent/terraform-aws-module-singular.git//dhcp_option_set"
   create_dhcp_options              = var.CREATE_DHCP_OPTIONS
   dhcp_options_name                = var.DHCP_OPTIONS_NAME
   aws_region                       = var.AWS_REGION
@@ -8,7 +8,7 @@ module "dhcp_option_set" {
 
 
 module "vpc" {
-  source             = "../terraform-modules/vpc/"
+  source             = "git::https://github.com/tyung-cadent/terraform-aws-module-singular.git//vpc"
   vpc_cidr           = var.VPC_CIDR
   create_vpc         = var.CREATE_VPC
   vpc_name           = var.VPC_NAME
@@ -19,20 +19,20 @@ module "vpc" {
 
 
 module "private_subnet" {
-  source        = "../terraform-modules/subnet/"
+  source        = "git::https://github.com/tyung-cadent/terraform-aws-module-singular.git//subnet"
   subnet_cidrs  = var.PRIVATE_SUBNET_CIDRS
   subnet_vpc_id = module.vpc.vpc_id
 }
 
 
 module "public_subnet" {
-  source        = "../terraform-modules/subnet/"
+  source        = "git::https://github.com/tyung-cadent/terraform-aws-module-singular.git//subnet"
   subnet_cidrs  = var.PUBLIC_SUBNET_CIDRS
   subnet_vpc_id = module.vpc.vpc_id
 }
 
 
 module "tgw_subnet" {
-  source        = "../terraform-modules/tgw_subnet/"
+  source        = "git::https://github.com/tyung-cadent/terraform-aws-module-singular.git//tgw_subnet"
   vpc_id = module.vpc.vpc_id
 }

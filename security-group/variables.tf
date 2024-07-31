@@ -1,4 +1,4 @@
-variable "AWS_REGION" {
+variable "aws_region" {
   type    = string
   default = "us-east-1"
 }
@@ -14,7 +14,6 @@ variable "remote_access_vpc_id" {
 }
 
 variable "default_security_group_egress_rules" {
-  description = "map of object can not be entered in ADO without some major effort. For now, put the variable here"
   type = map(object({
     cidr_ipv4                    = string
     description                  = string
@@ -57,7 +56,6 @@ variable "internal_remote_access_security_group_tags" {
 }
 
 variable "internal_remote_access_security_group_ingress_rules" {
-  description = "map of object can be not entered in ADO without some major effort. For now, put the variable here"
   type = map(object({
     cidr_ipv4                    = string
     description                  = string
@@ -129,7 +127,6 @@ variable "external_remote_access_security_group_tags" {
 }
 
 variable "external_remote_access_security_group_ingress_rules" {
-  description = "map of object can be not entered in ADO without some major effort. For now, put the variable here"
   type = map(object({
     cidr_ipv4                    = string
     description                  = string

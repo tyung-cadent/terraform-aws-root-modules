@@ -1,137 +1,137 @@
-variable "AWS_REGION" {
+variable "aws_region" {
   type    = string
   default = "us-east-1"
 }
 
-variable "ENV" {
+variable "env" {
   type    = string
   default = "test"
 }
 ################################################################################
-# DHCP Options Set
+# dhcp options set
 ################################################################################
-variable "CREATE_DHCP_OPTIONS" {
+variable "create_dhcp_options" {
   type    = bool
   default = true
 }
 
-variable "DHCP_OPTIONS_NAME" {
+variable "dhcp_options_name" {
   type    = string
   default = "test-dhcp-options"
 }
 
-variable "DHCP_OPTIONS_TAGS" {
+variable "dhcp_options_tags" {
   type    = map(string)
-  default = { tag1 : "testA", tag2 : "testB" }
+  default = { tag1 : "testa", tag2 : "testb" }
 }
 
-variable "DHCP_OPTION_SET_ID" {
+variable "dhcp_option_set_id" {
   type    = string
   default = ""
 }
 
-variable "DHCP_OPTIONS_DOMAIN_NAME_SERVERS" {
+variable "dhcp_options_domain_name_servers" {
   type    = list(string)
-  default = ["AmazonProvidedDNS"]
+  default = ["amazonprovideddns"]
 }
 
-variable "DHCP_OPTIONS_NETBIOS_NODE_TYPE" {
+variable "dhcp_options_netbios_node_type" {
   type    = string
   default = ""
 }
 
-variable "DHCP_OPTIONS_NTP_SERVERS" {
+variable "dhcp_options_ntp_servers" {
   type    = string
   default = ""
 }
 
-variable "DHCP_OPTIONS_NETBIOS_NAME_SERVERS" {
+variable "dhcp_options_netbios_name_servers" {
   type    = string
   default = ""
 }
 
 ################################################################################
-# VPC
+# vpc
 ################################################################################
-variable "CREATE_VPC" {
+variable "create_vpc" {
   type    = bool
   default = true
 }
 
-variable "VPC_CIDR" {
+variable "vpc_cidr" {
   type    = string
   default = "10.160.0.0/16"
 }
 
-variable "VPC_NAME" {
+variable "vpc_name" {
   type    = string
   default = "vpc_10_160"
 }
 
-variable "VPC_TAGS" {
+variable "vpc_tags" {
   type    = map(string)
   default = { "tag1" : "test_tag" }
 }
 
 
 ################################################################################
-# TGW 
+# tgw 
 ################################################################################
-variable "CREATE_TGW_ATTACHMENT" {
+variable "create_tgw_attachment" {
   type    = bool
   default = false
 }
 
-variable "CREATE_TGW_SUBNETS" {
+variable "create_tgw_subnets" {
   type    = bool
   default = true
 }
 
-variable "TGW_TAGS" {
+variable "tgw_tags" {
   type    = map(string)
   default = {}
 }
 
 ################################################################################
-# Subnets
+# subnets
 ################################################################################
-variable "PRIVATE_SUBNET_CIDRS" {
-  description = "key is az name, Value is cidr range"
+variable "private_subnet_cidrs" {
+  description = "key is az name, value is cidr range"
   type        = map(string)
   default     = { "us-east-1a" : "10.160.16.0/20", "us-east-1b" : "10.160.32.0/20", "us-east-1c" : "10.160.48.0/20" }
 }
 
-variable "PUBLIC_SUBNET_CIDRS" {
-  description = "key is az name, Value is cidr range"
+variable "public_subnet_cidrs" {
+  description = "key is az name, value is cidr range"
   type        = map(string)
   default     = { "us-east-1a" : "10.160.96.0/20", "us-east-1b" : "10.160.112.0/20", "us-east-1c" : "10.160.128.0/20" }
 }
 
 
 ################################################################################
-# Nat and Internet Gateway
+# nat and internet gateway
 ################################################################################
-variable "CREATE_NAT_GATEWAY" {
+variable "create_nat_gateway" {
   type    = bool
   default = true
 }
 
-variable "NAT_GATEWAY_CONNECTIVITY_TYPE" {
+variable "nat_gateway_connectivity_type" {
   type    = string
   default = "public"
 }
 
-variable "CREATE_IGW" {
+variable "create_igw" {
   type    = bool
   default = true
 }
 
-variable "IGW_TAGS" {
+variable "igw_tags" {
   type    = map(string)
   default = {}
 }
 
-variable "NAT_GATEWAY_TAGS" {
+variable "nat_gateway_tags" {
   type    = map(string)
   default = {}
 }
@@ -139,40 +139,40 @@ variable "NAT_GATEWAY_TAGS" {
 ################################################################################
 # private and public route table and routes
 ################################################################################
-variable "DEFAULT_ROUTE" {
+variable "default_route" {
   type    = string
   default = "0.0.0.0/0"
 }
 
-variable "TRANSIT_GATEWAY_ID" {
+variable "transit_gateway_id" {
   type    = string
   default = ""
 }
 
-variable "TGW_DESTINATION_CIDR_BLOCK" {
-  description = "Enter destination cidr as the key and tgw id as the value"
+variable "tgw_destination_cidr_block" {
+  description = "enter destination cidr as the key and tgw id as the value"
   type        = map(string)
   default     = {}
 }
 
-variable "TGW_DESTINATION_PREFIX_LIST" {
-  description = "Enter destination cidr as the key and tgw id as the value"
+variable "tgw_destination_prefix_list" {
+  description = "enter destination cidr as the key and tgw id as the value"
   type        = map(string)
   default     = {}
 }
 
-variable "PUBLIC_TGW_DESTINATION_CIDR_BLOCK" {
-  description = "Enter destination cidr as the key and tgw id as the value"
+variable "public_tgw_destination_cidr_block" {
+  description = "enter destination cidr as the key and tgw id as the value"
   type        = map(string)
   default     = {}
 }
 
-variable "PRIVATE_ROUTE_TABLE_TAGS" {
+variable "private_route_table_tags" {
   type    = map(string)
   default = { "tag1" : "test_tag" }
 }
 
-variable "PUBLIC_ROUTE_TABLE_TAGS" {
+variable "public_route_table_tags" {
   type    = map(string)
   default = { "tag1" : "test_tag" }
 }

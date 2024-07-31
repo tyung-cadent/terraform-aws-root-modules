@@ -1,7 +1,7 @@
 terraform {
   required_version = ">= 1.9.0"
   backend "s3" {
-    region = var.AWS_REGION
+    region = var.aws_region
     # dynamodb_table = "terraform-state-locking"
     encrypt = true
   }
@@ -15,10 +15,10 @@ terraform {
 }
 
 provider "aws" {
-  region = var.AWS_REGION
+  region = var.aws_region
   default_tags {
     tags = {
-      env       = var.ENV
+      env       = var.env
       terraform = "true"
     }
   }

@@ -1,7 +1,6 @@
 module "internal_remote_access" {
-  # source = "git::https://dev.azure.com/cadent-tv/DevOps/_git/terraform-aws-modules//security_group/v1_00"
-  source = "../../terraform-aws-module-singular/security-group"
-  
+  source = "git::https://github.com/tyung-cadent/terraform-aws-module-singular.git//security_group"
+    
   vpc_id                       = var.remote_access_vpc_id
   security_group_name          = var.internal_remote_access_security_group_name
   security_group_description   = var.internal_remote_access_security_group_description
@@ -11,8 +10,7 @@ module "internal_remote_access" {
 }
 
 module "external_remote_access" {
-  # source = "git::https://dev.azure.com/cadent-tv/DevOps/_git/terraform-aws-modules//security_group/v1_00"
-  source = "../../terraform-aws-module-singular/security-group"
+  source = "git::https://github.com/tyung-cadent/terraform-aws-module-singular.git//security_group"
   
   vpc_id                       = var.remote_access_vpc_id
   security_group_name          = var.external_remote_access_security_group_name
